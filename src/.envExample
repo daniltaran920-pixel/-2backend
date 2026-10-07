@@ -1,0 +1,6 @@
+PORT = yourPort
+DB_HOST= your host
+DB_PORT= your Dbport
+DB_USER= your dbUser
+DB_PASSWORD= your pswrd
+DB_NAME= your db
