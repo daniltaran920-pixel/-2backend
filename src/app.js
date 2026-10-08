@@ -17,6 +17,20 @@ async function connection() {
             } )
             console.log('Все нужное успешно создано')
         }
+
+        const hasUserTable = await db.schema.hasTable('users')
+
+        if(!hasUserTable){
+            await db.schema.createTable('users', (table) => {
+                
+                table.increments('id').primary()
+                table.string('email').notNullable().unique()
+                table.string('password').notNullable()
+                table.string('role').defaultTo('user').notNullable()
+                
+                console.log("Таблица пользователей создана")
+            })
+        }
     } catch (err) {
         console.log(err)
     } finally {
